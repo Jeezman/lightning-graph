@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "lib": ["dom", "es2015"],
+        "outDir": "./dist/",
+        "jsx": "react-jsx"
+    },
+    "extends": "../tsconfig.json",
+    "include": [
+        "src"
+    ]
+}
