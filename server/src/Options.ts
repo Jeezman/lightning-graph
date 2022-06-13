@@ -12,11 +12,11 @@ export class Options {
     public static async fromEnv(): Promise<Options> {
         const port = Number(process.env.PORT);
         const host: string = process.env.LND_HOST;
-        const macaroon: Buffer = await fs.readFile(process.env.LND_READONLY_MACAROON_PATH);
+        const macaroon: Buffer = await fs.readFile(process.env.LND_READONLY_MACAROON_PATH || '');
 
         // Exercise: Using fs.readFile read the file in the LND_CERT_PATH
         // environment variable
-        const cert: Buffer = undefined;
+        const cert: Buffer = await fs.readFile(process.env.LND_CERT_PATH || '');
 
         return new Options(port, host, macaroon, cert);
     }
