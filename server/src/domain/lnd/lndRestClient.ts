@@ -19,12 +19,12 @@ export class LndRestClient {
             const url = `${this.host}${path}`;
             const options = {
                 headers: {
-                    "grpc-metada-macaroon": this.macaroon.toString("hex")
+                    "grpc-metadata-macaroon": this.macaroon.toString("hex"),
                 },
-                ca: this.cert
+                ca: this.cert,
             };
             const req = https.request(url, options, res => {
-                const bufs: Buffer[]: []
+                const bufs: Buffer[] = [];
                 res.on("data", buf => {
                     bufs.push(buf);
                 });
@@ -36,7 +36,6 @@ export class LndRestClient {
             req.on("error", reject);
             req.end();
         });
-        // return undefined;
     }
 
     /**
@@ -59,11 +58,13 @@ export class LndRestClient {
                 ca: this.cert,
             };
             const req = https.request(url, options, res => {
+                const bufs: Buffer[] = [];
                 res.on("data", buf => {
                     cb(JSON.parse(buf.toString()));
+                    bufs.push(buf);
                 });
                 res.on("end", () => {
-                    resolve(null);
+                    resolve(undefined);
                 });
             });
             req.on("error", reject);
