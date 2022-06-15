@@ -1,8 +1,35 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
-        "module": "CommonJS",
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
         "esModuleInterop": true,
-        "sourceMap": true
-    }
+        // "module": "esnext",
+        "module": "commonjs" /* Specify what module code is generated. */,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true
+    },
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "typeRoots": [
+        "./types",
+        "./node_modules/@types"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
