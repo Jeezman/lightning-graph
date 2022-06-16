@@ -1,0 +1,1 @@
+export type {Lnd} from '../../../server/src/domain/lnd/LndRestTypes'

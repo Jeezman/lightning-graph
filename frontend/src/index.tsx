@@ -1,20 +1,11 @@
-import { StrictMode } from "react";
-import * as ReactDOMClient from "react-dom/client";
+import React from "react";
+import ReactDom from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { LayoutScene } from "./pages/layout";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello Lightning graph</h1>
-    </div>
-  );
-}
-
-const rootElement = document.getElementById("root");
-const root = ReactDOMClient.createRoot(rootElement);
-
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>
+ReactDom.render(
+  <BrowserRouter>
+    <LayoutScene />
+  </BrowserRouter>,
+  document.getElementById("root")
 );
-

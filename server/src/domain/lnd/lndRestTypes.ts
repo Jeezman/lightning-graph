@@ -4,6 +4,28 @@ export namespace Lnd {
         // Exercise: define the `nodes` and `edges` properties in this interface.
         // These arrays of LightningNode and ChannelEdge objects.
         replace_me_with_actual_properties: any;
+        nodes: Node[];
+        edges: Edge[];
+    }
+
+    export interface Node {
+        last_update: number;
+        pub_key: string;
+        alias: string
+        addresses: NodeAddress[];
+        color: string;
+        features: Record<string, unknown>;
+    }
+
+    export interface Edge {
+        channel_id: string;
+        chan_point: string;
+        last_update: number;
+        node1_pub: string;
+        node2_pub: string;
+        capacity: string;
+        node1_policy: RoutingPolicy;
+        node2_policy: RoutingPolicy;
     }
 
     export interface LightningNode {
