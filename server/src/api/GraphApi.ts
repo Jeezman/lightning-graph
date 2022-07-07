@@ -8,6 +8,7 @@ export function graphApi(graphService: IGraphService): express.Router {
     // adds a handler for returning the graph. 
     router.get("/api/graph", (req, res, next) => getGraph(req, res).catch(next));
 
+    // get graph 
     async function getGraph(req: express.Request, res: express.Response) {
         const graph = await graphService.getGraph();
         res.json(graph);
